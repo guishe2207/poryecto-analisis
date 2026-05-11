@@ -54,7 +54,7 @@ export default function GemBank({ bank, selectedGems = {}, onToggleGem, onConfir
   return (
     <div className="bg-gray-900 border border-gray-700 rounded-xl p-3">
       <div className="text-xs text-gray-500 uppercase tracking-widest mb-2">Banco de Gemas</div>
-      <div className="flex gap-2 flex-wrap">
+      <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
         {[...GEM_TYPES, 'gold'].map(gem => {
           const cfg      = GEM_CONFIG[gem];
           const count    = bank[gem] || 0;
@@ -67,7 +67,7 @@ export default function GemBank({ bank, selectedGems = {}, onToggleGem, onConfir
               onClick={() => gem !== 'gold' && handleGemClick(gem)}
               disabled={!active || gem === 'gold' || empty}
               className={`
-                relative flex flex-col items-center gap-1 rounded-lg p-2 border transition-all duration-150
+                relative flex min-h-20 flex-col items-center gap-1 rounded-lg border p-2 transition-all duration-150
                 ${selected > 0 ? 'ring-2 ring-white scale-110' : ''}
                 ${empty ? 'opacity-30 cursor-not-allowed' : active && gem !== 'gold' ? 'hover:brightness-125 cursor-pointer active:scale-95' : 'cursor-default'}
                 ${cfg.tw}
@@ -87,7 +87,7 @@ export default function GemBank({ bank, selectedGems = {}, onToggleGem, onConfir
       </div>
 
       {active && (
-        <div className="mt-3 flex items-center gap-2">
+        <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-center">
           <button
             onClick={onConfirmTake}
             disabled={!valid}
@@ -98,7 +98,7 @@ export default function GemBank({ bank, selectedGems = {}, onToggleGem, onConfir
           </button>
           <button
             onClick={onCancel}
-            className="px-3 py-1.5 rounded-lg text-sm bg-gray-700 hover:bg-gray-600 text-gray-300"
+            className="rounded-lg bg-gray-700 px-3 py-1.5 text-sm text-gray-300 hover:bg-gray-600 sm:w-auto"
           >
             ✕
           </button>
@@ -106,7 +106,7 @@ export default function GemBank({ bank, selectedGems = {}, onToggleGem, onConfir
       )}
 
       {active && (
-        <p className="text-[10px] text-gray-500 mt-1">
+        <p className="mt-1 text-[10px] text-gray-500">
           Hasta 3 gemas distintas, ó 2 iguales si hay ≥4 en banco
         </p>
       )}

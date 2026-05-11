@@ -43,11 +43,11 @@ export default function MathDashboard({ marketData, playerName }) {
   const { forwardError, backwardError } = errors;
 
   return (
-    <div className="bg-gray-950 border border-gray-800 rounded-xl p-4 flex flex-col gap-4 h-full overflow-y-auto">
+    <div className="flex flex-col gap-4 rounded-xl border border-gray-800 bg-gray-950 p-4 xl:h-full xl:overflow-y-auto">
 
       {/* Título */}
       <div>
-        <h2 className="text-emerald-400 font-bold text-sm uppercase tracking-widest neon-green">
+        <h2 className="text-sm font-bold uppercase tracking-widest text-emerald-400 neon-green">
           Dashboard Matemático
         </h2>
         <p className="text-gray-500 text-[10px]">Derivación Numérica · {playerName}</p>
@@ -58,7 +58,7 @@ export default function MathDashboard({ marketData, playerName }) {
         <div className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">Índice de Rendimiento actual</div>
         <div className="flex items-end gap-2">
           <div>
-            <span className="text-emerald-400 font-mono text-3xl font-bold">{currentFx}</span>
+            <span className="font-mono text-2xl font-bold text-emerald-400 sm:text-3xl">{currentFx}</span>
             <span className="text-gray-500 text-xs ml-1">f({turnCount})</span>
           </div>
           {deltaFx !== null && (
@@ -119,10 +119,10 @@ export default function MathDashboard({ marketData, playerName }) {
       {/* Mercado inteligente */}
       <div className={`rounded-xl border p-3 ${marketStatus.bg}`}>
         <div className="text-[10px] text-gray-400 uppercase tracking-wider mb-1">Estado del Mercado Inteligente</div>
-        <div className={`font-bold text-base ${marketStatus.color}`}>{marketStatus.label}</div>
+        <div className={`text-sm font-bold sm:text-base ${marketStatus.color}`}>{marketStatus.label}</div>
         <div className="flex items-center gap-2 mt-1">
           <span className="text-gray-400 text-xs">Multiplicador:</span>
-          <span className={`font-mono font-bold text-lg ${multiplier > 1 ? 'text-red-400' : multiplier < 1 ? 'text-emerald-400' : 'text-gray-300'}`}>
+          <span className={`font-mono text-base font-bold sm:text-lg ${multiplier > 1 ? 'text-red-400' : multiplier < 1 ? 'text-emerald-400' : 'text-gray-300'}`}>
             ×{multiplier.toFixed(2)}
           </span>
         </div>

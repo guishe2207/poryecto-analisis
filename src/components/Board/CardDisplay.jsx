@@ -31,7 +31,7 @@ function GemDot({ type, count }) {
  */
 export default function CardDisplay({ card, multiplier = 1.0, effectiveCost, canAfford = false, onClick, mode = 'view', isReserved = false }) {
   if (!card) return (
-    <div className="w-28 h-40 rounded-lg border border-dashed border-gray-700 flex items-center justify-center">
+    <div className="flex h-40 w-[6.75rem] items-center justify-center rounded-lg border border-dashed border-gray-700 sm:w-28">
       <span className="text-gray-600 text-xs">Vacío</span>
     </div>
   );
@@ -51,9 +51,9 @@ export default function CardDisplay({ card, multiplier = 1.0, effectiveCost, can
     <div
       onClick={onClick}
       className={`
-        relative w-28 h-40 rounded-lg border bg-gradient-to-b ${tierStyle} ${borderGlow}
+        relative h-40 w-[6.75rem] rounded-lg border bg-gradient-to-b ${tierStyle} ${borderGlow}
         flex flex-col justify-between p-2 cursor-pointer
-        transition-all duration-200 hover:scale-105 hover:brightness-110 select-none
+        transition-all duration-200 hover:scale-105 hover:brightness-110 select-none sm:w-28
         ${onClick ? 'active:scale-95' : ''}
       `}
     >

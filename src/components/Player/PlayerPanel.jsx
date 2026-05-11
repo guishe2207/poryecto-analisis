@@ -18,13 +18,13 @@ export default function PlayerPanel({ player, isActive, multiplier = 1.0, market
         : 'border-gray-700 bg-gray-900/60'
     }`}>
       {/* Header */}
-      <div className="flex items-center justify-between mb-3">
-        <div className="flex items-center gap-2">
+      <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-wrap items-center gap-2">
           {isActive && <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />}
           <span className="font-bold text-sm text-white">{player.name}</span>
           {isActive && <span className="text-[10px] bg-emerald-800 text-emerald-200 px-1.5 py-0.5 rounded">Turno activo</span>}
         </div>
-        <div className="text-right">
+        <div className="text-left sm:text-right">
           <div className="text-yellow-300 font-bold text-lg leading-none">{player.prestige}</div>
           <div className="text-yellow-500 text-[10px]">✦ prestige</div>
         </div>
@@ -96,7 +96,7 @@ export default function PlayerPanel({ player, isActive, multiplier = 1.0, market
       {player.reserved.length > 0 && (
         <div>
           <div className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">Reservadas ({player.reserved.length}/3)</div>
-          <div className="flex gap-1 flex-wrap">
+          <div className="flex flex-wrap gap-2">
             {player.reserved.map(card => (
               <CardDisplay key={card.id} card={card} mode="view" isReserved />
             ))}

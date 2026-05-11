@@ -30,7 +30,7 @@ export default function PerformanceChart({ chartData, showDerivatives = true }) 
       {/* Gráfico de f(x) */}
       <div>
         <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">f(x) — Índice de Rendimiento</p>
-        <ResponsiveContainer width="100%" height={130}>
+        <ResponsiveContainer width="100%" height={150}>
           <LineChart data={chartData} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#1f2937" />
             <XAxis dataKey="turno" tick={{ fill: '#6b7280', fontSize: 10 }} label={{ value: 'Turno (x)', position: 'insideBottomRight', offset: -4, fill: '#6b7280', fontSize: 9 }} />
@@ -49,7 +49,7 @@ export default function PerformanceChart({ chartData, showDerivatives = true }) 
       {showDerivatives && (
         <div>
           <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">f′(x) — Métodos de Derivación Numérica</p>
-          <ResponsiveContainer width="100%" height={130}>
+          <ResponsiveContainer width="100%" height={150}>
             <LineChart data={chartData} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#1f2937" />
               <XAxis dataKey="turno" tick={{ fill: '#6b7280', fontSize: 10 }} />
